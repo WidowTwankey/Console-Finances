@@ -86,3 +86,33 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+/*
+- create total Months variable = length of finances array (86)
+- for loop to add all the profits together and display it
+- for loop to create a changes in profit array
+- make a variable of total change in profits
+- totalChangeInProfits/number of `months = average profits change month to month
+- research how to find biggest number in array and store in var
+- research how to find biggest negative number in array and store in var
+*/
+
+let totalMonths = finances.length ;
+console.log("Total Months: " + totalMonths);
+
+let totalProfits = 0;
+
+for (let i = 0; i < finances.length; i++) {
+    totalProfits = totalProfits += finances[i][1];
+} 
+console.log ("Total Profits: $" + totalProfits);
+
+let profitChange = 867884;
+let avgProfitChange = 0
+
+for (let i=0; i < finances.length; i++) {
+    profitChange = (finances[i][1])-(finances[i-1][1]);
+    avgProfitChange = profitChange/86;
+}
+console.log("Average Change: $" + avgProfitChange)
