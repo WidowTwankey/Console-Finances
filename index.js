@@ -98,6 +98,9 @@ var finances = [
 - research how to find biggest negative number in array and store in var
 */
 
+console.log("Financial Analysis --- January 2010 to February 2017")
+console.log("----------------------------------------------------")
+
 let totalMonths = finances.length;
 console.log("Total Months: " + totalMonths);
 
@@ -123,12 +126,14 @@ for (let i = 1; i < finances.length; i++) {
     let change = finances[i][1] - finances[i-1][1];
     changes.push(change);
 }
- console.log(changes)
+
+ console.log("Greatest Increase in Profits: $" + Math.max(...changes))
+ console.log("Greatest Decrease in Profits: $" + Math.min(...changes))
 
 
 
 
- 
+
 
 //   let lastEntry = finances[i][1];
 //    for loop start:
