@@ -114,7 +114,6 @@ console.log ("Total Profits: $" + totalProfits);
 let profitChange = finances[0][1];  //first month change is 876884 - 0 because the business opened jan 2010
 let avgProfitChange = 0;
 
-
 for (let i=1; i < finances.length; i++) {
    profitChange += finances[i][1] - finances[i-1][1];
 }
@@ -122,21 +121,27 @@ avgProfitChange = profitChange/totalMonths;
 console.log("Average Change: $" + avgProfitChange);
 
 let changes = [finances[0][1]];
+console.log(changes)
 for (let i = 1; i < finances.length; i++) {
     let change = finances[i][1] - finances[i-1][1];
     changes.push(change);
 }
 
- console.log("Greatest Increase in Profits: $" + Math.max(...changes))
- console.log("Greatest Decrease in Profits: $" + Math.min(...changes))
+
+console.log(changes)
+ console.log("Greatest Increase in Profits: $" + Math.max(...changes));
+ console.log("Greatest Decrease in Profits: $" + Math.min(...changes));
 
 
 
 
+/*
 
+let months = [finances [0][0]];
+for (let i=1; i < finances.length; i++) {
+    let months = finances [1][i]
+    changes.push(months)
+}
+console.log(changes)
 
-//   let lastEntry = finances[i][1];
-//    for loop start:
-//   const entry = finances [i][1];
-//   entry.finances[i][1] -= lastEntry.finances[i][1];
-//   lastEntry = entry;
+*/
