@@ -98,21 +98,40 @@ var finances = [
 - research how to find biggest negative number in array and store in var
 */
 
-let totalMonths = finances.length ;
+let totalMonths = finances.length;
 console.log("Total Months: " + totalMonths);
 
 let totalProfits = 0;
 
 for (let i = 0; i < finances.length; i++) {
-    totalProfits = totalProfits += finances[i][1];
+    totalProfits += finances[i][1];
 } 
 console.log ("Total Profits: $" + totalProfits);
 
-let profitChange = 867884;
-let avgProfitChange = 0
+let profitChange = finances[0][1];  //first month change is 876884 - 0 because the business opened jan 2010
+let avgProfitChange = 0;
 
-for (let i=0; i < finances.length; i++) {
-    profitChange = (finances[i][1])-(finances[i-1][1]);
-    avgProfitChange = profitChange/86;
+
+for (let i=1; i < finances.length; i++) {
+   profitChange += finances[i][1] - finances[i-1][1];
 }
-console.log("Average Change: $" + avgProfitChange)
+avgProfitChange = profitChange/totalMonths;
+console.log("Average Change: $" + avgProfitChange);
+
+let changes = [finances[0][1]];
+for (let i = 1; i < finances.length; i++) {
+    let change = finances[i][1] - finances[i-1][1];
+    changes.push(change);
+}
+ console.log(changes)
+
+
+
+
+ 
+
+//   let lastEntry = finances[i][1];
+//    for loop start:
+//   const entry = finances [i][1];
+//   entry.finances[i][1] -= lastEntry.finances[i][1];
+//   lastEntry = entry;
