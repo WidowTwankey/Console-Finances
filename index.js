@@ -120,20 +120,43 @@ for (let i=1; i < finances.length; i++) {
 avgProfitChange = profitChange/totalMonths;
 console.log("Average Change: $" + avgProfitChange);
 
-let changes = [finances[0][1]];
-console.log(changes)
+let changes = [finances[0]];
 for (let i = 1; i < finances.length; i++) {
     let change = finances[i][1] - finances[i-1][1];
-    changes.push(change);
+    changes.push([finances[i][0], change]);
+}
+
+let largestIncrease = -99999999;
+let largestIncreaseIndex = -1;
+for (let i = 0; i < changes.length; i++) {
+    if (changes[i][1] > largestIncrease) {
+        largestIncrease = changes[i][1];
+        largestIncreaseIndex = i;
+    }
+}
+
+let largestDecrease = 99999999;
+let largestDecreaseIndex = -1;
+for (let i = 0; i < changes.length; i++) {
+    if (changes[i][1] < largestDecrease) {
+        largestDecrease = changes[i][1];
+        largestDecreaseIndex = i;
+    }
 }
 
 
-console.log(changes)
- console.log("Greatest Increase in Profits: $" + Math.max(...changes));
- console.log("Greatest Decrease in Profits: $" + Math.min(...changes));
+
+
+console.log("Greatest Increase in Profits: " + changes[largestIncreaseIndex][0] + " ($" + changes[largestIncreaseIndex][1] + ")");
+console.log("Greatest Decrease in Profits: " + changes[largestDecreaseIndex][0] + " ($" + changes[largestDecreaseIndex][1] + ")");
 
 
 
+
+
+
+
+ 
 
 /*
 
