@@ -118,7 +118,7 @@ for (let i=1; i < finances.length; i++) {                // i=1 because I need t
    profitChange += finances[i][1] - finances[i-1][1];    // i-1 to take the value away from the line before it, to get change in profit
 }
 avgProfitChange = profitChange/totalMonths;
-avgProfitChange = avgProfitChange.toFixed(2);
+avgProfitChange = avgProfitChange.toFixed(2);            // rounded to 2 dec places because its money
 console.log("Average Change: $" + avgProfitChange);
 
 let changes = [finances[0]];
