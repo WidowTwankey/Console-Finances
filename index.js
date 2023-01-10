@@ -111,11 +111,11 @@ for (let i = 0; i < finances.length; i++) {
 } 
 console.log ("Total Profits: $" + totalProfits);
 
-let profitChange = finances[0][1];  //first month change is 876884 - 0 because the business opened jan 2010
+let profitChange = finances[0][1];    //first month change is 876884 - 0 because the business opened jan 2010
 let avgProfitChange = 0;
 
-for (let i=1; i < finances.length; i++) {
-   profitChange += finances[i][1] - finances[i-1][1];
+for (let i=1; i < finances.length; i++) {                // i=1 because I need to subtract 1 from i in the line below and I've set profitChange at finance[0][1] already
+   profitChange += finances[i][1] - finances[i-1][1];    // i-1 to take the value away from the line before it, to get change in profit
 }
 avgProfitChange = profitChange/totalMonths;
 console.log("Average Change: $" + avgProfitChange);
@@ -123,10 +123,10 @@ console.log("Average Change: $" + avgProfitChange);
 let changes = [finances[0]];
 for (let i = 1; i < finances.length; i++) {
     let change = finances[i][1] - finances[i-1][1];
-    changes.push([finances[i][0], change]);
+    changes.push([finances[i][0], change]);          // .push is new to me, adds what's in parentheses to what's before .push -  
 }
 
-let largestIncrease = -99999999;
+let largestIncrease = -99999999;      // I used Math.max() and Math.min() before but it only found the number and not the date associated
 let largestIncreaseIndex = -1;
 for (let i = 0; i < changes.length; i++) {
     if (changes[i][1] > largestIncrease) {
@@ -144,27 +144,5 @@ for (let i = 0; i < changes.length; i++) {
     }
 }
 
-
-
-
 console.log("Greatest Increase in Profits: " + changes[largestIncreaseIndex][0] + " ($" + changes[largestIncreaseIndex][1] + ")");
 console.log("Greatest Decrease in Profits: " + changes[largestDecreaseIndex][0] + " ($" + changes[largestDecreaseIndex][1] + ")");
-
-
-
-
-
-
-
- 
-
-/*
-
-let months = [finances [0][0]];
-for (let i=1; i < finances.length; i++) {
-    let months = finances [1][i]
-    changes.push(months)
-}
-console.log(changes)
-
-*/
